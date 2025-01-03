@@ -54,7 +54,6 @@ public:
         }
         if(idx != -1){
             cout << "검색된 결과입니다" << endl;
-            idx = find(books.begin(), books.end(), title) - books.begin();
             cout << "- " << books[idx].title << " by " << books[idx].author << endl;
         }
         //검색된 책이 books 내에 존재하지 않으므로 존재하지 않음을 출력
@@ -73,7 +72,6 @@ public:
         }
         if(idx != -1){
             cout << "검색된 결과입니다" << endl;
-            idx = find(books.begin(), books.end(), author) - books.begin();
             cout << "- " << books[idx].title << " by " << books[idx].author << endl;
         }
         //검색된 작가가 books 내에 존재하지 않으므로 존재하지 않음을 출력
@@ -93,8 +91,8 @@ int main() {
         cout << "\n도서관 관리 프로그램" << endl;
         cout << "1. 책 추가" << endl; // 책 정보를 입력받아 책 목록에 추가
         cout << "2. 모든 책 출력" << endl; // 현재 책 목록에 있는 모든 책 출력
-        cout << "3. 책 제목으로 검색" << endl; //검색된 책 출력
-        cout << "4. 작가로 검색" << endl; //검색된 책 출력
+        cout << "3. 책 제목으로 검색" << endl; //책제목 검색 -> 책제목 및 작가 출력
+        cout << "4. 작가로 검색" << endl; //책작가 검색 -> 책제목 및 작가 출력
         cout << "5. 종료" << endl; // 프로그램 종료
         cout << "선택: ";
 
@@ -118,8 +116,8 @@ int main() {
             manager.displayAllBooks();
         }
         else if (choice == 3) {
-            // 3번 선택: 검색된 책 출력
-            // 현재 BookManager에 저장된 책 목록을 출력합니다.
+            // 3번 선택: 책제목 검색
+            // 현재 BookManager에 저장된 작가와 책제목을 출력합니다.
             string title;
             cout << "책 제목 :";
             cin.ignore();
@@ -127,8 +125,8 @@ int main() {
             manager.searchByTitle(title);
         }
         else if (choice == 4) {
-            // 4번 선택: 검색된 책 출력
-            // 현재 BookManager에 저장된 책 목록을 출력합니다.
+            // 4번 선택: 작가 검색
+            // 현재 BookManager에 저장된 작가와 책제목을 출력합니다.
             string author;
             cout << "작가 이름 :";
             cin.ignore();
